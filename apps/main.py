@@ -66,7 +66,7 @@ if __name__ == '__main__':
         f.write('import \'package:apps_ad/AppItem.dart\';\n')
         f.write('\n')
         f.write('/// 由python脚本自动生成 不要手动编辑\n')
-        f.write('/// ' + str(datetime.datetime.now())+"\n")
+        f.write('/// time->' + str(datetime.datetime.now())+"\n")
         f.write('class Apps{\n')
         f.write('\n')
         f.write('\tList<AppItem> makeApps(){\n')

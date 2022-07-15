@@ -1,4 +1,5 @@
 # coding=utf-8
+import datetime
 import json
 import os
 import base64
@@ -65,9 +66,10 @@ if __name__ == '__main__':
         f.write('import \'package:apps_ad/AppItem.dart\';\n')
         f.write('\n')
         f.write('/// 由python脚本自动生成 不要手动编辑\n')
+        f.write('/// ' + str(datetime.datetime.now())+"\n")
         f.write('class Apps{\n')
         f.write('\n')
-        f.write('\tList<AppItem> getApps(){\n')
+        f.write('\tList<AppItem> makeApps(){\n')
         f.write('\t\tList<AppItem> list = [];\n')
         f.write('\n')
         for line in app_item_list:

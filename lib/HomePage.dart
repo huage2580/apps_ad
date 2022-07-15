@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    appList.addAll(Apps().getApps());
+    appList.addAll(Apps().makeApps());
     _sortList();
   }
 

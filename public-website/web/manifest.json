@@ -1,6 +1,6 @@
 {
-    "name": "apps_ad",
-    "short_name": "apps_ad",
+    "name": "应用推荐",
+    "short_name": "应用推荐",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

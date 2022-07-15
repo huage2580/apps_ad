@@ -11,7 +11,9 @@ ad page for apps
     ---- icon.png
 ```
 编辑配置文件,按照下面的实例
+
 ```
+//特别注意！不能包含英文单引号双引号，\n\r等换行符  
 {
   "packageName": "com.hua.fafa_ol",
   "appName": "花花收纳OL",

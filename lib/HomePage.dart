@@ -49,6 +49,9 @@ class _HomePageState extends State<HomePage> {
                   ))),
         ],
       ),
+      floatingActionButton: FloatingActionButton.small(onPressed: (){
+        _showAbout();
+      },child: const Text("?",style: TextStyle(color: Colors.white),),),
     );
   }
 
@@ -56,108 +59,71 @@ class _HomePageState extends State<HomePage> {
     final item = appList[index];
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                color: const Color(0xffF8F8F8),
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: const [
-                  BoxShadow(
-                      color: Color(0x40000000),
-                      offset: Offset(0, 4),
-                      blurRadius: 10)
-                ]),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Material(
-                child: InkWell(
-                  onTap: () {
-                    launchUrlString(item.appStoreUrl);
-                  },
-                  hoverColor: Colors.orange[50],
-                  splashColor: Colors.orange[100],
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            bottomLeft: Radius.circular(8)),
-                        child: SizedBox(
-                          height: 120,
-                          width: 120,
-                          child: Image.memory(item.iconRawList,width: 120,height: 120,),
-                        ),
-                      ),
-                      Expanded(
-                          child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 8),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              item.appName,
-                              style: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              item.author,
-                              style: const TextStyle(fontSize: 12),
-                            ),
-                            SizedBox.fromSize(
-                              size: const Size(0, 12),
-                            ),
-                            Text(
-                              item.introduction,
-                              style: const TextStyle(fontSize: 14),
-                              maxLines: 2,
-                              overflow: TextOverflow.clip,
-                            ),
-                          ],
-                        ),
-                      )),
-                    ],
+      decoration: BoxDecoration(
+          color: const Color(0xffF8F8F8),
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: const [
+            BoxShadow(
+                color: Color(0x40000000),
+                offset: Offset(0, 4),
+                blurRadius: 10)
+          ]),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Material(
+          child: InkWell(
+            onTap: () {
+              launchUrlString(item.appStoreUrl);
+            },
+            hoverColor: Colors.green[50],
+            splashColor: Colors.green[100],
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomLeft: Radius.circular(8)),
+                  child: SizedBox(
+                    height: 120,
+                    width: 120,
+                    child: Image.memory(item.iconRawList,width: 120,height: 120,),
                   ),
                 ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Stack(
-              children: [
-                ClipRect(
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-                      child: Container(
-                        height: 30,
-                        width: 30,
-                        color: Colors.white.withAlpha(0),
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10, vertical: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        item.appName,
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                    )),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.orange.withAlpha(200),
-                      borderRadius: const BorderRadius.only(
-                          bottomRight: Radius.circular(8),
-                          topLeft: Radius.circular(8))),
-                  height: 30,
-                  width: 30,
-                  child: const Center(
-                      child: Icon(
-                    Icons.send,
-                    color: Colors.white,
-                    size: 16,
-                  )),
-                ),
+                      const SizedBox(height: 4,),
+                      Text(
+                        item.author,
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                      SizedBox.fromSize(
+                        size: const Size(0, 12),
+                      ),
+                      Text(
+                        item.introduction,
+                        style: const TextStyle(fontSize: 14),
+                        maxLines: 2,
+                        overflow: TextOverflow.clip,
+                      ),
+                    ],
+                  ),
+                )),
               ],
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
@@ -183,6 +149,19 @@ class _HomePageState extends State<HomePage> {
         appList = t;
       }
     }
+  }
+
+
+  void _showAbout() async{
+    await showDialog(context: context, builder: (ctx)=>AlertDialog(
+      title: const Text("推荐我的应用"),
+      content: const Text("加入推荐联盟，只需通过Github项目发起PR，合并后自动发布。\n\nhttps://github.com/huage2580/apps_ad\n\n更多信息，参考README。"),
+      actions: [
+        TextButton(onPressed: (){
+          launchUrlString("https://github.com/huage2580/apps_ad");
+        }, child: const Text("前往项目Github"))
+      ],
+    ));
   }
 }
 

@@ -22,5 +22,5 @@ jobs:
         python-version: "3.10"
     - name: generate Apps.dart
       run: |
-        cd ./apps
-        main.py
+        cd apps
+        python main.py

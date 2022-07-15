@@ -33,5 +33,13 @@ ad page for apps
 通过包名查找应用,记得不要配置错误 `#packageName`
 构建链接 : `https://ad.master2app.com/#com.hua.fafaol`  
 
+举个例子:  
+```text
+https://ad.master2app.com/#kidstyo.Today-3x3
+
+https://ad.master2app.com/#app.shadiao.jingluox
+
+```
+
 
 

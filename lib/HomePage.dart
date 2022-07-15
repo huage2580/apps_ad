@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           const Padding(
-            padding: EdgeInsets.all(32.0),
+            padding: EdgeInsets.only(top: 32,bottom: 8),
             child: Center(
               child: Text(
                 "友情推广",
@@ -58,7 +58,8 @@ class _HomePageState extends State<HomePage> {
   Widget _buildAppCard(BuildContext context, int index) {
     final item = appList[index];
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
+      margin: const EdgeInsets.only(left: 40,top: 20,bottom: 0,right: 20),
+      height: 140,
       decoration: BoxDecoration(
           color: const Color(0xffF8F8F8),
           borderRadius: BorderRadius.circular(8),
@@ -85,9 +86,9 @@ class _HomePageState extends State<HomePage> {
                       topLeft: Radius.circular(8),
                       bottomLeft: Radius.circular(8)),
                   child: SizedBox(
-                    height: 120,
-                    width: 120,
-                    child: Image.memory(item.iconRawList,width: 120,height: 120,),
+                    height: 140,
+                    width: 140,
+                    child: Image.memory(item.iconRawList,width: 140,height: 140,),
                   ),
                 ),
                 Expanded(
@@ -114,8 +115,8 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         item.introduction,
                         style: const TextStyle(fontSize: 14),
-                        maxLines: 2,
-                        overflow: TextOverflow.clip,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),

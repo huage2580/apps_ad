@@ -28,7 +28,7 @@ def make_app_item(item_dir):
         with open(icon_file, 'rb') as f2:
             icon_base64 = base64.b64encode(f2.read()).decode()
         line = 'list.add(AppItem.make("%s", "%s", "%s", "%s", "%s", "%s"));' % (package_name, icon_base64, app, author, introduction, url)
-        print(line)
+        # print(line)
         app_item_list.append(line)
 
 

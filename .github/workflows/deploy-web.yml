@@ -29,6 +29,5 @@ jobs:
         channel: 'stable'
     - run: flutter pub get
     - run: flutter build web --web-renderer html
-    - run: mkdir public-website
     - run: cp -r build/web public-website
     - uses: stefanzweifel/git-auto-commit-action@v4

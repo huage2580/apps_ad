@@ -1,7 +1,7 @@
 import 'package:apps_ad/AppItem.dart';
 
 /// 由python脚本自动生成 不要手动编辑
-/// 2022-07-15 17:30:33.685857
+/// time->2022-07-15 10:15:14.611937
 class Apps{
 
 	List<AppItem> makeApps(){
